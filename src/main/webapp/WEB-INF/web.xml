@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <display-name>websecurity1</display-name>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <description></description>
+        <display-name>GreetingServlet</display-name>
+        <servlet-name>GreetingServlet</servlet-name>
+        <servlet-class>com.example.demo.GreetingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GreetingServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>com.example.demo.filter.SecurityFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>BlacklistFilter</filter-name>
+        <filter-class>com.example.demo.filter.BlacklistFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BlacklistFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+</web-app>
